@@ -1,0 +1,171 @@
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+            aria-controls="offcanvasDarkNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="button-btn">
+            <a class="btn me-2 text-white" style="background: #00baa4;" href="/login">เข้าสู่ระบบ</a>
+                    <a class="btn btn-danger me-2" href="#">ออกจากระบบ</a>
+        </div>
+
+        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+            aria-labelledby="offcanvasDarkNavbarLabel" style="width: 280px;">
+            <div class="offcanvas-header">
+                <div class="logo" herf="#">
+                    <span>R</span>
+                    <span>U</span>
+                    <span>T</span>
+                    <span>S</span>
+                </div>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="nav nav-pills flex-column ">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white " aria-current="page">
+                            <svg class="bi pe-none me-2" width="16" height="20">
+                                <use xlink:href="#home"></use>
+                            </svg>
+                            <i class="fa-sharp fa-solid fa-house"></i>
+                            หน้าแรก
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/product" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="20">
+                                <use xlink:href="#speedometer2"></use>
+                            </svg>
+                            <i class="fa-sharp fa-solid fa-layer-group"></i>
+                            สินค้าทั้งหมด
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="20">
+                                <use xlink:href="#table"></use>
+                            </svg>
+                            <i class="fa-sharp fa-solid fa-tag"></i>
+                            ประเภทสินค้า
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/import" class="nav-link text-white ">
+                            <svg class="bi pe-none me-2" width="16" height="20">
+                                <use xlink:href="#grid"></use>
+                            </svg>
+                            <i class="fa-solid fa-plus-minus"></i>
+                            รับเข้าสินค้า
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/report" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="20">
+                                <use xlink:href="#people-circle"></use>
+                            </svg>
+                            <i class="fa-sharp fa-solid fa-chart-line"></i>
+                            สรุปยอดขาย
+                        </a>
+                    </li>
+                </ul>
+               
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container-router col-9">
+    <router-outlet></router-outlet>
+</div>
+
+
+<!-- <div class="row">
+        <div class="container-navbar col-12">
+            <nav class="navbar navbar-dark bg-dark">
+                
+                <header class="p-1 text-bg-dark">
+                    <div class="container-nav">
+                        <div class=" align-items-center justify-content-center justify-content-lg-start">
+                            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                                <svg class="bi me-2" width="100%" height="40" aria-label="Bootstrap">
+                                    
+                                </svg>
+                            </a>
+
+                            <div class="button-btn">
+                                <button type="button" class="btn btn-outline-light me-2">Login</button>
+                                <button type="button" class="btn btn-warning me-2">Sign-up</button>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+            </nav>
+        </div> -->
+<!-- sidebar -->
+<!-- <div class="container-sidebar col-4">
+            <div class="side flex-column flex-shrink-0 p-3 text-bg-dark">
+                <a href="#" class="d-flex align-items-center  text-white ">
+                    <svg class="bi pe-none me-2" width="40" height="31"></svg> -->
+<!-- <span class="fs-4">คลังสินค้า</span> -->
+<!-- <div class="logo" herf="#">
+                        <span>R</span>
+                        <span>U</span>
+                        <span>S</span>
+                        <span>T</span>
+                    </div>
+                </a>
+                <hr class="hr1">
+                <ul class="nav nav-pills flex-column ">
+                    <li class="nav-item">
+                        <a href="/product" class="nav-link text-white " aria-current="page">
+                            <svg class="bi pe-none me-2" width="16" height="20">
+                                <use xlink:href="#home"></use>
+                            </svg>
+                            <i class="fa-sharp fa-solid fa-house"></i>
+                            หน้าแรก
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="20">
+                                <use xlink:href="#speedometer2"></use>
+                            </svg>
+                            <i class="fa-sharp fa-solid fa-layer-group"></i>
+                            สินค้าทั้งหมด
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="20">
+                                <use xlink:href="#table"></use>
+                            </svg>
+                            <i class="fa-sharp fa-solid fa-tag"></i>
+                            ประเภทสินค้า
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white ">
+                            <svg class="bi pe-none me-2" width="16" height="20">
+                                <use xlink:href="#grid"></use>
+                            </svg>
+                            <i class="fa-solid fa-plus-minus"></i>
+                            รับเข้าสินค้า
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="20">
+                                <use xlink:href="#people-circle"></use>
+                            </svg>
+                            <i class="fa-sharp fa-solid fa-chart-line"></i>
+                            สรุปยอดขาย
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+            </div>
+        </div>
+        <div class="container-router col-9">
+            <router-outlet></router-outlet>
+        </div>
+    </div> -->

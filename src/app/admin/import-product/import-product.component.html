@@ -1,0 +1,157 @@
+<div class="container">
+  <div class="row">
+    <div class="card border-light shadow-lg mt-3">
+      <div class="card-body">
+        <h5 class="fw-bold">
+          <i class="fa-solid fa-plus-minus"></i>
+          เพิ่มรายการสินค้า
+        </h5>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">หน้าแรก</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              ข้อมูลสินค้า
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <div class="card border-light shadow-lg mt-3">
+      <div class="card-body">
+        <h5 class="text-muted fw-bold px-6 mb-3">ข้อมูลสินค้า</h5>
+        <hr />
+        <div class="mt-4">
+          <!-- Button trigger modal เพิ่ม -->
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            (click)="openmodel_add('create')">
+            <i class="fa-regular fa-square-plus"></i>
+            เพิ่มรายการสินค้า
+          </button>
+          <!-- Modal เพิ่ม -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5 fw-bold text-white " id="exampleModalLabel">
+                    <i class="fa-regular fa-square-plus"></i>
+                    {{h_name}}
+                  </h1>
+                </div>
+                <div class="modal-body">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-2">
+                        <label for="staticEmail" class="form-label">รหัสสินค้า</label>
+                        <input type="text" class="form-control" placeholder="" [(ngModel)]="formedit.PRD_ID " 
+                          name="PRD_ID" >
+                      </div>
+                      <div class="col-md-4">
+                        <label for="staticEmail" class="form-label">ชื่อสินค้า</label>
+                        <input type="text" class="form-control" placeholder="" [(ngModel)]="formedit.PRD_NAME "
+                          name="PRD_NAME">
+                      </div>
+                      <div class="col-md-2">
+                        <label for="statictype" class="form-label">ประเภท</label>
+                        <select (change)="changselecttype($event)" class="form-select form-select" name="text_type"
+                          [(ngModel)]="formedit.TYPE_ID" aria-label=".form-select-sm example"
+                          placeholder="Input group example">
+                          <option selected>-เลือกประเภทสินค้า</option>
+                          <option *ngFor="let item of datatype" [value]="item.TYPE_ID">{{item.TYPE_NAME}} </option>
+                        </select>
+                      </div>
+                      <div class="col-md-2">
+                        <label for="staticsize" class="form-label">ไซส์</label>
+                        <select (change)="changselectsize($event)" class="form-select form-select" name="SIZE_NAME"
+                         [(ngModel)]="formedit.SIZE_ID" aria-label=".form-select-sm example"
+                          placeholder="Input group example">
+                          <option selected>-เลือกไซส์</option>
+                          <option *ngFor="let item of datasize" [value]="item.SIZE_ID">{{item.SIZE_NAME}} </option>
+                        </select>
+                      </div>
+                     
+                 
+                      <div class="col-md-2">
+                        <label for="staticEmail" class="form-label ">ราคาต้นทุน</label>
+                        <input type="number" class="form-control" placeholder="" [(ngModel)]="formedit.PRD_PCOST"
+                          name="PRD_PCOST">
+                      </div>
+                      <div class="col-md-2">
+                        <label for="staticEmail" class="form-label mt-3">ราคาขาย</label>
+                        <input type="number" class="form-control" placeholder="" [(ngModel)]="formedit.PRD_PRICE"
+                          name="PRD_PRICE">
+                      </div>
+                     
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-4 text-center">
+                  <button type="button" class="btn btn-success me-3" data-bs-dismiss="modal"
+                    (click)="saveprd(formedit)">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    {{e_name}}
+                  </button>
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                    ยกเลิก
+                  </button>
+                </div>
+                <div class="modal-footer"></div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="row g-3 mt-4">
+            
+            
+
+            <hr class="mt-1" />
+
+            <div class="container mt-3">
+              <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table table-hover">
+                <thead>
+                  <tr class="table-primary">
+                    <th scope="col">รหัสสินค้า</th>
+                    <th scope="col">ชื่อสินค้า</th>
+                    <th scope="col">ประเภท</th>
+                    <th scope="col">ไซส์</th>
+                    <!-- <th scope="col">จำนวน</th> -->
+                    <th scope="col">ราคาต้นทุน</th>
+                    <th scope="col">ราคาขาย</th>
+                    <th scope="col">ตัวเลือก</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of dataview" let i = index>
+                    <td>{{ item.PRD_ID }}</td>
+                    <td>{{ item.PRD_NAME }}</td>
+                    <td>{{ item.TYPE_NAME }}</td>
+                    <td>{{ item.SIZE_NAME }}</td>
+                    <td>{{ item.PRD_PCOST }}</td>
+                    <td>{{ item.PRD_PRICE }}</td>
+                    <td>
+                      <!-- Button trigger modal แก้ไข 
+                  <button type="button" class="btn btn-warning me-3" data-bs-toggle="modal"
+                    data-bs-target="exampleModal">
+                    <i class="fa-sharp fa-solid fa-pen"></i>
+                  </button>-->
+                      <button type="button" class="btn btn-warning me-3" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal" (click)="editclick(item)">
+                        <i class="fa-solid fa-pen"></i>
+                      </button>
+
+                        <button type="button" class="btn btn-danger" (click)="delete(item.PRD_ID)">
+                          <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    <div class="card border-light shadow-lg mt-3">
+      <div class="card-body">
+        <h5 class="fw-bold">
+          <i class="fa-solid fa-plus-minus"></i>
+          สต๊อกสินค้าทั้งหมด
+
+        </h5>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">หน้าแรก</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              สต๊ฮกสินค้า
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+
+    <div class="card border-light shadow-lg mt-3">
+      <div class="mt-3">
+
+      </div>
+      <div class="card-body">
+        <div class="row" >
+          <h5 class="text-muted fw-bold px-6 mb-3 col-5">ข้อมูลสินค้าทั้งหมด</h5>
+          <a type="button" class="btn btn-success me-3 col-2"  href="/receipt-order">สั่งซื้อสินค้า</a>
+          <a type="button" class="btn btn-info me-3 text-white col-2  " href="/payment">การชำระเงิน</a>
+          <a type="button" class="btn btn-warning text-white me-3  col-2" href="/receipt-admit">รับเข้าสินค้า</a>
+        </div>
+        
+        <hr />
+        <div class="mt-4 ">
+          <div class="container mt-3">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table table-hover">
+              <thead>
+                <tr class="table-primary">
+                  <th scope="col">รหัสสินค้า</th>
+                  <th scope="col">ชื่อสินค้า</th>
+                  <th scope="col">ประเภท</th>
+                  <th scope="col">ไซส์</th>
+                  <th scope="col">จำนวนคงเหลือ</th>
+                  <th scope="col">ราคาต้นทุน</th>
+                  <th scope="col">ราคาขาย</th>
+                  <th scope="col">สถานะคงเหลือ</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of dataview">
+                  <td>{{ item.PRD_ID }}</td>
+                  <td>{{ item.PRD_NAME }}</td>
+                  <td>{{ item.TYPE_NAME }}</td>
+                  <td>{{ item.SIZE_NAME }}</td>
+                  <td>{{ item.PRD_NUMB }} </td>
+                  <td>{{ item.PRD_PCOST }}</td>
+                  <td>{{ item.PRD_PRICE }}</td>
+                  <td><span class="badge text-bg-{{colr_name}}" *ngIf="checkProductStatus(item) !== ''">{{
+                      checkProductStatus(item) }}</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+
+          <div class="row g-3 mt-4">
+            <hr class="mt-1" />
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

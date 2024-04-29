@@ -1,0 +1,93 @@
+
+//   ul li :hover {
+//     background-color: #F8B318;
+// }
+
+
+
+  
+.nav-link i {
+    margin-right: 14px;
+ 
+    color: #ffffff;
+  }
+
+.nav .nav-link:hover i,
+.nav .nav-link:hover .link {
+  color: rgb(0, 0, 0);
+  transition: all 0.6s ease;
+}
+
+.nav .nav-link:hover {
+    background-color: #F8B318;
+  }
+
+  .nav li.active {
+    border-bottom: 3px solid #ffffff;
+    background: #eee
+    
+  }
+
+
+
+
+
+
+
+
+
+// .button-btn{
+//     position: absolute;
+//     right: 1%;
+//     top: 10px;
+    
+// }
+
+// .button-end button {
+//     font-size: 14px;
+// }
+
+// .hr1 {
+//     margin-top: 30px;
+// }
+
+// .nav-link {
+//     margin-top: 15px;
+// }
+
+// ul li :hover {
+//     background-color: #F8B318;
+// }
+
+.logo {
+    position: absolute;
+    top: 4.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+.logo span {
+    font-size: 2.5vw;
+    font-weight: 800;
+    text-shadow: -0.08em 0.03em 0.10em rgba(0, 0, 0, 0.9);
+}
+
+.logo span:not(:first-child) {
+    margin-left: -0.11em;
+}
+
+i{
+    vertical-align: center;
+    margin-right: 0.8rem;
+}
+
+// .container-router {
+//     position: center;
+//     margin-top: 80px;
+//     margin-left: 80px;
+//     width: 90%;
+// }
+
+

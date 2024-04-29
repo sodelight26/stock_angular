@@ -1,0 +1,223 @@
+<div class="container">
+    <div class="row">
+        <div class="card border-light shadow-lg mt-3">
+            <div class="card-body">
+                <h5 class="fw-bold">
+                    <i class="fa-solid fa-plus-minus"></i>
+                    รับเข้าสินค้า
+                </h5>
+
+                <nav aria-label="breadcrumb">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">หน้าแรก</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            รับเข้าสินค้า
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="card border-light shadow-lg mt-3">
+            <div class="card-body">
+                <h5 class="text-muted fw-bold px-6 mb-3 col-md-3">บิลรับเข้า</h5>
+                <hr />
+
+                <!-- <div class="col-md-2">
+                    <label for="statictype" class="form-label">ประเภท</label>
+                    <select (change)="changselecttypesell($event)" class="form-select form-select" name="text_type"
+                      [(ngModel)]="formedit.TYPE_ID" aria-label=".form-select-sm example"
+                      placeholder="Input group example">
+                      <option selected>-เลือกประเภทสินค้า</option>
+                      <option *ngFor="let item of datatype" [value]="item.TYPE_ID">{{item.TYPE_NAME}} </option>
+                    </select>
+                  </div> -->
+
+                <div class="row g-3">
+                    
+                    <div class="col-md-6">
+                        <label for="staticEmail" class="form-label">รับมาจาก</label>
+                        <textarea class="form-control" aria-label="With textarea"[(ngModel)]="formaddp.ADDP_MK"></textarea>
+                        <!-- <input type="text" class="form-control" [(ngModel)]="formord.CUS_ADR" /> -->
+                    </div>
+                 
+                    <div class="col-md-2">
+                        <label for="staticEmail" class="form-label">วันที่รับเข้า</label>
+                        <input type="date" class="form-control" [(ngModel)]="formaddp.ADDP_DAT" />
+                    </div>
+
+                    <hr class="mt-5" />
+                    <h5 class="text-muted fw-bold px-6 mb-3 ">เพิ่มรายการสินค้าในบิล</h5>
+                    <div class="Card">
+
+
+                        <div class="col-md-3">
+                            <div class="input-group flex-nowrap">
+                                <!-- Button trigger modal -->
+                                <div class="input-group " data-bs-toggle="modal"
+                                data-bs-target="#exampleModalss">
+                                <button type="button" class="btn btn-success "><i class="fa-regular fa-square-plus"></i> เพิ่มรายการสินค้า</button>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mt-5" />
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalss" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-white" id="exampleModalLabel">เพิ่มรายการสินค้าในบิล</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container mt-3">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label for="staticEmail" class="form-label">ค้นหาสินค้า</label>
+                                                        <div class="input-group ">
+                                                            <div class="input-group-text text-success"
+                                                                id="btnGroupAddon2">
+                                                                <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                                                            </div>
+                                                            <input type="text" class="form-control " id="exampleDataList" 
+                                                                [(ngModel)]="searchTerm" (input)="search()"
+                                                                placeholder="Type to search..."
+                                                                list="datalistOptions" />
+                                                            <datalist id="datalistOptions"> 
+                                                                <option *ngFor="let result of results " 
+                                                                    [value]=" result.PRD_ID + ' - ' + result.PRD_NAME + ' - ' + result.TYPE_NAME + ' - ' + result.SIZE_NAME">
+                                                                </option>
+                                                            </datalist>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="card-body">
+                                                    <table class="table table-hover ">
+                                                        <thead>
+                                                            <tr class="table-primary">
+                                                                <th scope="col">รหัสสินค้า</th>
+                                                                <th scope="col">ชื่อสินค้า</th>
+                                                                <th scope="col">ประเภท</th>
+                                                                <th scope="col">ไซส์</th>
+                                                                <th scope="col">จำนวนรับเข้า</th>
+                                                                <th scope="col">ราคารับเข้า</th>
+                                                                <th scope="col">เลือก</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let result of results" >
+                                                                <td>{{ result.PRD_ID }}</td>
+                                                                <td>{{ result.PRD_NAME }}</td>
+                                                                <td>{{ result.TYPE_NAME }}</td>
+                                                                <td>{{ result.SIZE_NAME }}</td>
+                                                                <td>
+                                                                    <div class="input-group mb-1" style="width: 150px;">
+                                                                        <input type="number" class="form-control"
+                                                                            placeholder="จำนวน"
+                                                                            [(ngModel)]="result.ADDPD_NUM" min="1"
+                                                                            aria-label="Recipient's username"
+                                                                            aria-describedby="basic-addon2">
+                                                                        <span class="input-group-text"
+                                                                            id="basic-addon2">ชิ้น</span>
+                                                                    </div>
+                                                                </td>
+
+                                                                <td>
+                                                                    <div class="input-group col-md-2"
+                                                                        style="width: 200px;">
+                                                                        <span class="input-group-text">฿</span>
+                                                                        <input type="text" class="form-control "
+                                                                            placeholder="ราคาขาย"
+                                                                            [(ngModel)]="result.ADDPD_PRICE"
+                                                                            aria-label="Amount (to the nearest dollar)">
+                                                                        <span class="input-group-text">บาท</span>
+                                                                    </div>
+                                                                </td>
+
+                                                                <td>
+                                                                    <button type="button" class="btn btn-success"
+                                                                        (click)="selectitem(result)">
+                                                                        <i class="fa-solid fa-arrow-down"></i>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger"
+                                            data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <h5 class="text-muted fw-bold px-6 mb-1 col-12">
+                            รายการสินค้าในบิล
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btnsave btn btn-primary float-end mb-2" data-bs-toggle="modal"
+                            (click)="save(formaddp)">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                            บันทึกการรับเข้า
+                        </button>
+                        </h5>
+
+
+                        <div class="container mt-3">
+                            <table #receipt class="table table-striped table-hover">
+                                <thead>
+                                    <tr class="table-primary">
+                                        <th scope="col">รหัสสินค้า</th>
+                                        <th scope="col">ชื่อสินค้า</th>
+                                        <th scope="col">ประเภท</th>
+                                        <th scope="col">ไซส์</th>
+                                        <th scope="col">จำนวนรับเข้า</th>
+                                        <th scope="col">ราคารับเข้า</th>
+                                        <th scope="col">ราคารวม</th>
+                                        <th scope="col">เลือก</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of formaddp.datavar">
+                                        <td>{{item.PRD_ID}}</td>
+                                        <td>{{item.PRD_NAME}}</td>
+                                        <td>{{item.TYPE_NAME}}</td>
+                                        <td>{{item.SIZE_NAME}}</td>
+                                        <td>{{item.ADDPD_NUM}}</td>
+                                        <td>{{item.ADDPD_PRICE}}</td>
+                                        <td>{{ item.ADDPD_NUM * item.ADDPD_PRICE }}</td>
+
+                                        <td>
+                                            <button type="button" class="btn btn-danger"
+                                                (click)="selectitemDELETE(item)">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-primary">
+                                        <th scope="row"></th>
+                                        <td colspan="4"></td>
+                                        <td class="table-active"></td>
+                                        <td class="table-active text-danger fw-bold ">ยอดรวม {{ calculateSum() }} </td>
+                                        <td class="table-active"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   

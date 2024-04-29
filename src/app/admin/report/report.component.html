@@ -1,0 +1,218 @@
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6 mt-3 ">
+                <div class="card text-bg-warning">
+                    <div class="card-body ">
+                        <h6 class="card-title  ">รายการ / สินค้าคงเหลือ</h6>
+                        <h3>20 รายการ</h3>
+                        <a href="#" class="btn btn-dark">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 mt-3">
+                <div class="card text-bg-success ">
+                    <div class="card-body">
+                        <h6 class="card-title">การจำหนายสินค้าประจำเดือน</h6>
+                        <h3>0 รายการ</h3>
+                        <a href="#" class="btn btn-dark">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 mt-3">
+                <div class="card text-bg-primary">
+                    <div class="card-body">
+                        <h6 class="card-title">ยอดขายประจำเดือน</h6>
+                        <h3>รายการ</h3>
+                        <a href="#" class="btn btn-dark">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 mt-3">
+                <div class="card text-bg-danger">
+                    <div class="card-body">
+                        <h6 class="card-title">ยอดกำไรที่ได้รับ</h6>
+                        <h3>รายการ</h3>
+                        <a href="#" class="btn btn-dark">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid" style="margin-top: 40px;">
+            <div class="row">
+                <div class="col-md-12 mt-3">
+                    <h2>รายงาน รายการ / สินค้าคงเหลือ ตามช่วงเวลา</h2>
+                    <div class="row g-3 mt-3">
+                        <div class="form-floating col-md-5 mb-4">
+                            <input type="month" name="month" class="form-control" [(ngModel)]="item.month"
+                                id="floatingInput" placeholder="month" required>
+                            <label for="floatingInput">เดือน</label>
+                        </div>
+                        <div class="col-1">
+                            <button type="button" class="btn btn-outline-info" >ค้นหา</button>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <h4 class="col">รายงานสรุปประจำเดือน </h4>
+                            <button type="button" class="btn btn-success text-white me-3 mb-3 col-2"
+                                (click)="exportToExcel()">
+                                <i class="fa-solid fa-file-excel me-2"></i>
+                                exportToExcel</button>
+                            <button type="button" class="btn btn-primary text-white me-3 mb-3 col-2"
+                                (click)="summary()">
+                                <i class="fa-sharp fa-solid fa-square-poll-vertical"></i> สรุปยอดราเดือน</button>
+                        </div>
+
+                        <div class="card mb-5">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered border-dark mt-3">
+                                        <thead>
+                                            <tr style="font-size: 13px;">
+                                                <th rowspan="2" class="text-center"
+                                                    style="vertical-align: middle; background-color: rgb(201, 196, 196);">
+                                                    <a>ที่</a>
+                                                </th>
+                                                <th colspan="4" class="text-center"
+                                                    style="vertical-align: middle; background-color: rgb(201, 196, 196);">
+                                                    <strong><a>รายการ</a></strong>
+                                                </th>
+                                                <th rowspan="2" class="text-center"
+                                                    style="vertical-align: middle; background-color: rgb(201, 196, 196);">
+                                                    <strong><a>สินค้าคงเหลือ <br> (จำนวนชิ้น) <br> <span
+                                                                class="fw-normal">(0)</span></a></strong>
+                                                </th>
+                                                <th rowspan="2" class="text-center"
+                                                    style="vertical-align: middle; background-color: rgb(237, 237, 237);">
+                                                    <strong><a>ราคาขาย <br> ต่อหน่วย <br> <span
+                                                                class="fw-normal">(1)</span></a></strong>
+                                                </th>
+                                                <th colspan="3" class="text-center "
+                                                    style=" background-color: rgb(241, 254, 0);">
+                                                    <strong><a>การจำหน่ายสินค้า <br> <span>(ชิ้น)</span></a></strong>
+                                                </th>
+                                                <th rowspan="2" class="text-center"
+                                                    style="vertical-align: middle ;background-color: rgb(241, 254, 0);">
+                                                    <strong><a>จำนวนสินค้าคงเหลือ <br><span
+                                                                class="fw-normal">(0)-(4)=(5)</span></a></strong>
+                                                </th>
+                                                <th colspan="3" class="text-center"
+                                                    style=" background-color: rgb(244, 224, 148);"><strong><a>ยอดขาย
+                                                            (บาท)
+                                                        </a></strong></th>
+                                                <th colspan="3" class="text-center"
+                                                    style=" background-color: rgb(222, 190, 237);">
+                                                    <strong><a>กำไรสุทธิบาท (บาท) </a></strong>
+                                                </th>
+                                            </tr>
+                                            <tr style="font-size: 13px; ">
+
+                                                <th class="th-md-1 " class="text-center"
+                                                    style="vertical-align: middle; background-color: rgb(201, 196, 196);">
+                                                    <strong><a>ไอดีสินค้า</a></strong>
+                                                </th>
+                                                <th class="th-md-1 " class="text-center"
+                                                    style="vertical-align: middle; background-color: rgb(201, 196, 196);">
+                                                    <strong><a>ชื่อสินค้า</a></strong>
+                                                </th>
+                                                <th class="th-md-1 " class="text-center"
+                                                    style="vertical-align: middle; background-color: rgb(201, 196, 196);">
+                                                    <strong><a>ประเภท</a></strong>
+                                                </th>
+                                                <th class="th-md-1 " class="text-center"
+                                                    style="vertical-align: middle; background-color: rgb(201, 196, 196);">
+                                                    <strong><a>ไซส์</a></strong>
+                                                </th>
+                                                <th class="th-md-1 " class="text-center"
+                                                    style="vertical-align: middle; background-color: rgb(241, 254, 0);">
+                                                    <strong><a>เงินสด <br> <span
+                                                                class="fw-normal">(2)</span></a></strong>
+                                                </th>
+                                                <th class="th-md-1 " class="text-center"
+                                                    style="vertical-align: middle; background-color: rgb(241, 254, 0);">
+                                                    <strong><a>เครดิต <br> <span
+                                                                class="fw-normal">(3)</span></a></strong>
+                                                </th>
+                                                <th class="th-md-1 " class="text-center"
+                                                    style="vertical-align: middle; background-color: rgb(241, 254, 0);">
+                                                    <strong><a>รวมยอด <br><span class="fw-normal">(2)+(3)=(4)
+                                                            </span></a></strong>
+                                                </th>
+                                                <th class="th-md-1" class="text-center"
+                                                    style="vertical-align: middle; background-color: rgb(244, 224, 148);">
+                                                    <strong><a>เงินสด <br> <span
+                                                                class="fw-normal">(1)*(2)=(6)</span></a></strong>
+                                                </th>
+                                                <th class="th-md-1" class="text-center"
+                                                    style="vertical-align: middle; background-color: rgb(244, 224, 148);">
+                                                    <strong><a>เครดิต <br><span class="fw-normal">(1)*(3)=(7)
+                                                            </span></a></strong>
+                                                </th>
+                                                <th class="th-md-1" class="text-center"
+                                                    style="vertical-align: middle; background-color: rgb(244, 224, 148);">
+                                                    <strong><a>รวม <br> <span class="fw-normal">(6)+(7)=(8)
+                                                            </span></a></strong>
+                                                </th>
+                                                <th class="th-md-1" class="text-center"
+                                                    style="vertical-align: middle; background-color: rgb(222, 190, 237);">
+                                                    <strong><a>ราคาสินค้าต่อ <br> หน่วย / บาท <br><span
+                                                                class="fw-normal">(9)</span> </a></strong>
+                                                </th>
+                                                <th class="th-md-1" class="text-center"
+                                                    style="vertical-align: middle; background-color: rgb(222, 190, 237);">
+                                                    <strong><a>ต้นทุน <br> <span class="fw-normal">(4)*(9)=(10)
+                                                            </span></a></strong>
+                                                </th>
+                                                <th class="th-md-1" class="text-center"
+                                                    style="vertical-align: middle; background-color: rgb(222, 190, 237);">
+                                                    <strong><a>กำไรสุทธิ (บาท) <br> <span
+                                                                class="fw-normal">(8)-(10)=(11)</span></a></strong>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="text-end" *ngFor="let item of dataview;  let i = index">
+                                                <td class="text-center">{{i + 1 }}</td>
+                                                <td class="text-center">{{item.PRD_ID}}</td>
+                                                <td class="text-start">{{item.PRD_NAME}}</td>
+                                                <td class="text-start">{{item.TYPE_NAME}}</td>
+                                                <td class="text-start">{{item.SIZE_NAME}}</td>
+                                                <td>{{item.SMONTH_NUM}}</td>
+                                                <td>{{item.PRD_PRICE}}</td>
+                                                <td>{{item.SOLD_AMOUNT_CASH}}</td>
+                                                <td>{{item.SOLD_AMOUNT_CREDIT}}</td>
+                                                <td>{{item.SOLD_AMOUNT_TOTAL}}</td>
+                                                <td>{{item.PRD_NUMB}}</td>
+                                                <td>{{item.SOLD_PRICE_CASH}}</td>
+                                                <td>{{item.SOLD_PRICE_CREDIT}}</td>
+                                                <td>{{item.SOLD_PRICE_TOTAL}}</td>
+                                                <td>{{item.PRD_PCOST}}</td>
+                                                <td>{{item.TOTAL_COST}}</td>
+                                                <td>{{item.PROFIT}}</td>
+                                            </tr>
+                                            <tr class="text-end" style=" background-color: gold; font-weight: bold;">
+                                                <td class="text-center" colspan="5">รวม</td>
+                                                <td>{{ sumSMONTH_NUM('SMONTH_NUM') }}</td>
+                                                <td>{{ sumPRD_PRICE('PRD_PRICE') }}</td>
+                                                <td>{{ sumSOLD_AMOUNT_CASH('SOLD_AMOUNT_CASH') }}</td>
+                                                <td>{{ sumSOLD_AMOUNT_CREDIT('SOLD_AMOUNT_CREDIT') }}</td>
+                                                <td>{{ sumSOLD_AMOUNT_TOTAL('SOLD_AMOUNT_TOTAL') }}</td>
+                                                <td>{{ sumSOLD_PRD_NUMB('PRD_NUMB') }}</td>
+                                                <td>{{ sumSOLD_PRICE_CASH('SOLD_PRICE_CASH') }}</td>
+                                                <td>{{ sumSOLD_PRICE_CREDIT('SOLD_PRICE_CREDIT') }}</td>
+                                                <td>{{ sumSOLD_PRICE_TOTAL('SOLD_PRICE_TOTAL') }}</td>
+                                                <td>{{ sumPRD_PCOST('PRD_PCOST') }}</td>
+                                                <td>{{ sumTOTAL_COST('TOTAL_COST') }}</td>
+                                                <td>{{ sumPROFIT('PROFIT') }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

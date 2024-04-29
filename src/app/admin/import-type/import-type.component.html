@@ -1,0 +1,154 @@
+<div class="container">
+    <div class="row">
+        <div class="card border-light shadow-lg mt-3">
+            <div class="card-body">
+                <h5 class="fw-bold">
+                    <i class="fa-solid fa-plus-minus"></i>
+                    เพิ่มรายการประเภท
+
+                </h5>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">หน้าแรก</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            ข้อมูลประเภท
+                        </li>
+                    </ol>
+                </nav>
+
+            </div>
+        </div>
+        <div class="card border-light shadow-lg mt-3">
+            <div class="card-body">
+                <h5 class="text-muted fw-bold px-6 mb-3">ข้อมูลประเภท</h5>
+                <hr />
+                <div class="mt-4 ">
+                    <!-- Button trigger modal เพิ่มรายการ -->
+                    <button type="button" class="btn btn-success " data-bs-toggle="modal"
+                        data-bs-target="#exampleModall">
+                        <i class="fa-regular fa-square-plus"></i>
+                        เพิ่มรายการประเภท
+                    </button>
+                    <!-- Modal เพิ่มรายการ-->
+                    <div class="modal fade" id="exampleModall" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-body ">
+                            <div class="modal-content">
+                                <div class="modal-header bg-success">
+                                    <h1 class="modal-title fs-5 fw-bold text-white" id="exampleModalLabel">
+                                        <i class="fa-regular fa-square-plus"></i>
+                                        เพิ่มประเภท
+                                    </h1>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="card-body ">
+                                        <div class="row">
+                                            <div class="col-md-6 ">
+                                                <label for="staticEmail" class="form-label">รหัสประเภท</label>
+                                                <input type="text" class="form-control" placeholder="" [(ngModel)]="form_add.TYPE_ID">
+                                            </div>
+                                            <div class="col-md-6 ">
+                                                <label for="staticEmail" class="form-label">ชื่อประเภท</label>
+                                                <input type="text" class="form-control" placeholder="" [(ngModel)]="form_add.TYPE_NAME">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-4 text-center">
+                                    <button type="button" class="btn btn-success me-3" data-bs-dismiss="modal" (click)="save(form_add)">
+                                        <i class="fa-solid fa-floppy-disk"></i>
+                                        บันทึก
+                                    </button>
+                                    <button type="button" class="btn btn-danger " data-bs-dismiss="modal">
+                                        <i class="fa-regular fa-circle-xmark"></i>
+                                        ยกเลิก
+                                    </button>
+                                </div>
+                                <div class="modal-footer ">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-3 mt-4">
+
+                   
+                        <hr class="mt-1" />
+                       
+                        <div class="container-start mt-3 col-12">
+                            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                            class="table table table-hover">
+                                <thead>
+                                    <tr class="table-primary ">
+
+                                        <th scope="col">รหัสประเภท</th>
+                                        <th scope="col">ชื่อชื่อประเภท</th>
+                                        <th scope="col">ตัวเลือก</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of dataview"  let i = index>
+                                        <td>{{item.TYPE_ID}}</td>   
+                                        <td>{{item.TYPE_NAME}}</td>
+                                        <td> 
+                                            <!-- Button trigger modal แก้ไข -->
+                                            <button type="button" class="btn btn-warning me-2" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal22" (click)="update(item)">
+                                                <i class="fa-sharp fa-solid fa-pen"></i>
+                                            </button>
+                                            <!-- Modal แก้ไข-->
+                                            <div class="modal fade" id="exampleModal22" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-body ">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header bg-warning">
+                                                            <div class="modal-title fs-5 fw-bold text-white" id="exampleModalLabel" >
+                                                                <i class="fa-regular fa-square-plus"></i>
+                                                                แก้ไขชื่อประเภทสินค้า
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                            <div class="card-body ">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <label for="staticEmail"
+                                                                            class="form-label ">ชื่อประเภท</label>
+                                                                        <input required type="text" class="form-control"
+                                                                            placeholder=""
+                                                                            [(ngModel)]="form_add.TYPE_NAME" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mt-4 text-center">
+                                                            <button type="submit" class="btn btn-warning me-3"
+                                                                (click)="getDataUpdte(form_add)" data-bs-dismiss="modal">
+                                                                <i class="fa-solid fa-floppy-disk"></i>
+                                                                แก้ไข
+                                                            </button>
+                                                            <button type="button" class="btn btn-danger "
+                                                                data-bs-dismiss="modal">
+                                                                <i class="fa-regular fa-circle-xmark"></i>
+                                                                ยกเลิก
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-footer ">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn btn-danger" (click)="delete(item.TYPE_ID)">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

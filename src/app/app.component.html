@@ -1,0 +1,142 @@
+<head>
+    <meta charset="UTF-8">
+</head>
+<nav class="navbar navbar-dark bg-dark " *ngIf="dataview">
+    <div class="container-fluid ">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+            aria-controls="offcanvasDarkNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="button-btn">
+            
+            <a  class="btn btn-danger me-2" (click)="logout()">ออกจากระบบ</a>
+        </div>
+
+        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+            aria-labelledby="offcanvasDarkNavbarLabel" style="width: 280px;">
+            <div class="offcanvas-header">
+                <div class="logo" herf="#">
+                    <span>R</span>
+                    <span>U</span>
+                    <span>T</span>
+                    <span>S</span>
+                </div>
+            </div>
+            <div class="offcanvas-body">
+
+                <ul class="nav nav-pills flex-column ">
+
+
+                    <hr>
+                    <div class="text-muted small fw-bold px-4 mb-1">
+                        <span class="link">เมนูจัดการ</span>
+                    </div>
+                    
+                    <li>
+                        <a href="/product" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="20">
+                                <use xlink:href="#speedometer2"></use>
+                            </svg>
+                            <i class="fa-solid fa-store"></i>
+                            <span class="link"> สต๊อกสินค้า</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/receipt-order" class="nav-link text-white " aria-current="page">
+                            <svg class="bi pe-none me-2" width="16" height="20">
+                                <use xlink:href="#home"></use>
+                            </svg>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span class="link">คำสั่งซื้อ</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/receipt-admit" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="20">
+                                <use xlink:href="#table"></use>
+                            </svg>
+                            <i class="fa-solid fa-plus-minus"></i>
+                            <span class="link"> รับเข้าสินค้า</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/payment" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="20">
+                                <use xlink:href="#table"></use>
+                            </svg>
+                            <i class="fa-solid fa-cash-register"></i>
+                            <span class="link">การชำระเงิน</span>
+                        </a>
+                    </li>
+                    <hr>
+                    <div class="text-muted small fw-bold px-4 mb-1 mt-1">
+                        จัดการข้อมูลหลัก
+                    </div>
+                    <li class="nav-item">
+                      <a href="/import-produt" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="20">
+                                <!--<use xlink:href="#grid"></use>-->
+                            </svg>
+                            <i class="fa-solid fa-plus"></i>
+                            <span class="link">ข้อมูลสินค้า</span>
+                          </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/import-size" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="20">
+                                <use xlink:href="#people-circle"></use>
+                            </svg>
+                            <i class="fa-solid fa-minimize"></i>
+                            <span class="link">ข้อมูลไซส์</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/import-type" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="20">
+                                <use xlink:href="#people-circle"></use>
+                            </svg>
+                            <i class="fa-solid fa-tags"></i>
+                            <span class="link">ข้อมูลประเภท</span>
+                        </a>
+                    </li>
+                    <hr>
+                    <div class="text-muted small fw-bold px-4 mb-1 mt-1">
+                            รายงาน
+                    </div>
+                    <li>
+                        <a href="/report" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="20">
+                                <use xlink:href="#people-circle"></use>
+                            </svg>
+                            <i class="fa-solid fa-file-contract"></i>
+                            <span class="link">รายงานยอดขาย</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/report" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="20">
+                                <use xlink:href="#people-circle"></use>
+                            </svg>
+                            <i class="fa-solid fa-file-contract"></i>
+                            <span class="link">รายงานจำหน่าย</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/report" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="20">
+                                <use xlink:href="#people-circle"></use>
+                            </svg>
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span class="link"> กำไรสุทธิ</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+    <router-outlet></router-outlet>
+

@@ -1,0 +1,74 @@
+// @import url('https://fonts.googleapis.com/css2?family=K2D:wght@300&family=Mitr&display=swap');
+
+// @font-face {
+//     font-family: 'K2D';
+//     font-style: normal;
+//     font-weight: 300;
+//     src: url('https://fonts.gstatic.com/s/k2d/v4/J7aRnpdSbPk3MrtbTp8LtS7ZaR7iMw.ttf') format('truetype');
+//   }
+
+//   tr th span{
+//     font-size: 11px;
+//   }
+
+
+
+  /* CSS for Table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+th,
+td {
+  padding: 0.75rem;
+  vertical-align: middle;
+  border-top: 1px solid #dee2e6;
+}
+
+th {
+  font-weight: 600;
+  background-color: #f8f9fa;
+}
+
+thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+
+tbody+tbody {
+  border-top: 2px solid #dee2e6;
+}
+
+/* CSS for Export Button */
+.export-button {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.export-button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+  color: #fff;
+}
+
+.export-button:active {
+  background-color: #0062cc;
+  border-color: #005cbf;
+  color: #fff;
+}
+
+.export-button:focus {
+  outline: none;
+}
